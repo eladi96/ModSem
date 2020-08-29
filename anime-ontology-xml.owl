@@ -8,8 +8,12 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:list="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
      xmlns:objectrole="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#"
      xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
     <owl:Ontology rdf:about="http://www.semanticweb.org/eladi/ontologies/anime-ontology">
@@ -73,6 +77,12 @@
     
 
 
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -112,6 +122,29 @@
         </owl:propertyChainAxiom>
         <rdfs:comment xml:lang="en">A relation between a character and the programme in which appears.</rdfs:comment>
         <rdfs:label xml:lang="it">personaggio in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/eladi/ontologies/anime-ontology#costarring -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/eladi/ontologies/anime-ontology#costarring">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#MainCharacter"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#MainCharacter"/>
+        <rdfs:label xml:lang="en">A relation between two main characters.</rdfs:label>
+        <rdfs:label xml:lang="it">coprotagonista</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/eladi/ontologies/anime-ontology#directedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/eladi/ontologies/anime-ontology#directedBy">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/po/Programme"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#Director"/>
+        <rdfs:comment xml:lang="en">A relation between a programme and its director.</rdfs:comment>
+        <rdfs:label xml:lang="it">diretto da</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -212,6 +245,17 @@
         <rdfs:range rdf:resource="http://purl.org/ontology/po/Series"/>
         <rdfs:comment xml:lang="en">A relation between an episode and the series which is part of.</rdfs:comment>
         <rdfs:label xml:lang="it">episodio di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/eladi/ontologies/anime-ontology#mainOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/eladi/ontologies/anime-ontology#mainOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#MainCharacter"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/po/Programme"/>
+        <rdfs:comment xml:lang="en">Relation between a character and the programme in which has a main role.</rdfs:comment>
+        <rdfs:label xml:lang="it">protagonista di</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -340,6 +384,17 @@
     
 
 
+    <!-- http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#RealPerson"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#Studio"/>
+        <rdfs:comment xml:lang="en">Relation between a person and a production studio for which he/she woorked for in the making of a programme.</rdfs:comment>
+        <rdfs:label xml:lang="it">ha lavorato per</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -392,6 +447,17 @@
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
         <rdfs:comment xml:lang="en">The duration of the programme in minutes.</rdfs:comment>
         <rdfs:label xml:lang="it">durata</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/eladi/ontologies/anime-ontology#shortSeries -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/eladi/ontologies/anime-ontology#shortSeries">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/po/Programme"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">Boolean value that is true if the series has less then 15 episodes.</rdfs:comment>
+        <rdfs:label xml:lang="it">serie breve</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -881,6 +947,7 @@
         <hasGenre rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#Mystery"/>
         <hasOpening rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#Flyers"/>
         <producedBy rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#Madhouse"/>
+        <list:size rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</list:size>
         <firstAiring rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-01-10T00:00:00</firstAiring>
         <rdfs:comment xml:lang="en">A programme.</rdfs:comment>
         <rdfs:label xml:lang="en">Death Parade</rdfs:label>
@@ -1411,6 +1478,7 @@
         <hasGenre rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#Slice_Of_Life"/>
         <hasOpening rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Melody"/>
         <producedBy rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#MAPPA"/>
+        <list:size rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</list:size>
         <englishTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kids On The Slope</englishTitle>
         <firstAiring rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-04-13T00:00:00</firstAiring>
         <rdfs:comment xml:lang="en">A programme.</rdfs:comment>
@@ -2214,6 +2282,344 @@
             <rdf:Description rdf:about="http://www.semanticweb.org/eladi/ontologies/anime-ontology#voice_actor_Sentaro_Kawabuchi"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/eladi/ontologies/anime-ontology#voice_actor_Yurika_Fukahori"/>
         </owl:distinctMembers>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/eladi/ontologies/anime-ontology#p">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/eladi/ontologies/anime-ontology#r">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/eladi/ontologies/anime-ontology#prog">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/eladi/ontologies/anime-ontology#c">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/eladi/ontologies/anime-ontology#c1">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/eladi/ontologies/anime-ontology#c2">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/eladi/ontologies/anime-ontology#s">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relation beween a programme and its director</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">directedBy</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#p"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#DirectorRole"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#r"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#roleIn"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#r"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#prog"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#directedBy"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#prog"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#p"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relation between a character and a programme in which it has the main role.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mainOf</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#characterIn"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#c"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#p"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#MainCharacter"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#c"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#mainOf"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#c"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#p"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relation between to main characters in a programme</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">costarring</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#MainCharacter"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#c1"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#characterIn"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#c1"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#p"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#MainCharacter"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#c2"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#characterIn"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#c2"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#p"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#c1"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#c2"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#costarring"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#c1"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#c2"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relation between a person and a production studio for which he/she woorked for in the making of a programme.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">workedFor</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#p"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#productionRoleIn"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#r"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#prog"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#producedBy"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#prog"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#s"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#p"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sets value True to property short series if a series has less than 15 episodes.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">shortSeries</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#size"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#p"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThanOrEqual"/>
+                                <swrl:arguments>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#s"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </swrl:arguments>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#shortSeries"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#p"/>
+                        <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrl:argument2>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
 </rdf:RDF>
 

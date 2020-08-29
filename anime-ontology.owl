@@ -6,8 +6,10 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix list: <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@prefix objectrole: <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#> .
 @base <http://www.semanticweb.org/eladi/ontologies/anime-ontology> .
 
 <http://www.semanticweb.org/eladi/ontologies/anime-ontology> rdf:type owl:Ontology ;
@@ -49,6 +51,10 @@ vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
 vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
 #################################################################
 #    Datatypes
 #################################################################
@@ -65,11 +71,28 @@ xsd:date rdf:type rdfs:Datatype .
 :characterIn rdf:type owl:ObjectProperty ;
              rdfs:domain :Character ;
              rdfs:range po:Programme ;
-             owl:propertyChainAxiom ( <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole>
+             owl:propertyChainAxiom ( objectrole:hasRole
                                       :narrativeRoleIn
                                     ) ;
              rdfs:comment "A relation between a character and the programme in which appears."@en ;
              rdfs:label "personaggio in"@it .
+
+
+###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#costarring
+:costarring rdf:type owl:ObjectProperty ,
+                     owl:SymmetricProperty ;
+            rdfs:domain :MainCharacter ;
+            rdfs:range :MainCharacter ;
+            rdfs:label "A relation between two main characters."@en ,
+                       "coprotagonista"@it .
+
+
+###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#directedBy
+:directedBy rdf:type owl:ObjectProperty ;
+            rdfs:domain po:Programme ;
+            rdfs:range :Director ;
+            rdfs:comment "A relation between a programme and its director."@en ;
+            rdfs:label "diretto da"@it .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#dubbedBy
@@ -112,7 +135,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#hasEpisode
 :hasEpisode rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem> ;
+            rdfs:subPropertyOf list:hasItem ;
             owl:inverseOf :isEpisodeOf ;
             rdfs:domain po:Series ;
             rdfs:range po:Episode ;
@@ -140,12 +163,20 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#isEpisodeOf
 :isEpisodeOf rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemOf> ;
+             rdfs:subPropertyOf list:itemOf ;
              rdf:type owl:FunctionalProperty ;
              rdfs:domain po:Episode ;
              rdfs:range po:Series ;
              rdfs:comment "A relation between an episode and the series which is part of."@en ;
              rdfs:label "episodio di"@it .
+
+
+###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#mainOf
+:mainOf rdf:type owl:ObjectProperty ;
+        rdfs:domain :MainCharacter ;
+        rdfs:range po:Programme ;
+        rdfs:comment "Relation between a character and the programme in which has a main role."@en ;
+        rdfs:label "protagonista di"@it .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#narrativeRoleIn
@@ -203,7 +234,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#roleIn
 :roleIn rdf:type owl:ObjectProperty ;
-        rdfs:domain <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role> ;
+        rdfs:domain objectrole:Role ;
         rdfs:range po:Programme ;
         rdfs:comment "A relation between a role and the programme in which operates."@en ;
         rdfs:label "ruolo in"@it .
@@ -213,7 +244,7 @@ xsd:date rdf:type rdfs:Datatype .
 :voiceActorIn rdf:type owl:ObjectProperty ;
               rdfs:domain :VoiceActor ;
               rdfs:range po:Programme ;
-              owl:propertyChainAxiom ( <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole>
+              owl:propertyChainAxiom ( objectrole:hasRole
                                        :voiceRole
                                        :characterIn
                                      ) ;
@@ -225,7 +256,7 @@ xsd:date rdf:type rdfs:Datatype .
 :voiceOf rdf:type owl:ObjectProperty ;
          rdfs:domain :VoiceActor ;
          rdfs:range :Character ;
-         owl:propertyChainAxiom ( <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole>
+         owl:propertyChainAxiom ( objectrole:hasRole
                                   :voiceRole
                                 ) ;
          rdfs:comment "Relation between a voice actor and the character that interprets."@en ;
@@ -238,6 +269,14 @@ xsd:date rdf:type rdfs:Datatype .
            rdfs:range :Character ;
            rdfs:comment "A relation between the role of Voice Actor and a Character."@en ;
            rdfs:label "ruolo doppiaggio"@it .
+
+
+###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor
+:workedFor rdf:type owl:ObjectProperty ;
+           rdfs:domain :RealPerson ;
+           rdfs:range :Studio ;
+           rdfs:comment "Relation between a person and a production studio for which he/she woorked for in the making of a programme."@en ;
+           rdfs:label "ha lavorato per"@it .
 
 
 #################################################################
@@ -275,6 +314,14 @@ xsd:date rdf:type rdfs:Datatype .
          rdfs:range xsd:nonNegativeInteger ;
          rdfs:comment "The duration of the programme in minutes."@en ;
          rdfs:label "durata"@it .
+
+
+###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#shortSeries
+:shortSeries rdf:type owl:DatatypeProperty ;
+             rdfs:domain po:Programme ;
+             rdfs:range xsd:boolean ;
+             rdfs:comment "Boolean value that is true if the series has less then 15 episodes."@en ;
+             rdfs:label "serie breve"@it .
 
 
 #################################################################
@@ -343,14 +390,14 @@ po:Series rdf:type owl:Class ;
 :Character rdf:type owl:Class ;
            owl:equivalentClass [ owl:intersectionOf ( :ImaginaryPerson
                                                       [ rdf:type owl:Restriction ;
-                                                        owl:onProperty <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> ;
+                                                        owl:onProperty objectrole:hasRole ;
                                                         owl:someValuesFrom :NarrativeRole
                                                       ]
                                                     ) ;
                                  rdf:type owl:Class
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> ;
+                                 owl:onProperty objectrole:hasRole ;
                                  owl:someValuesFrom :NarrativeRole
                                ] ;
            rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl#Agent> ;
@@ -360,7 +407,7 @@ po:Series rdf:type owl:Class ;
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Director
 :Director rdf:type owl:Class ;
           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                owl:onProperty <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> ;
+                                owl:onProperty objectrole:hasRole ;
                                 owl:someValuesFrom :DirectorRole
                               ] ;
           rdfs:subClassOf :RealPerson ;
@@ -403,7 +450,7 @@ po:Series rdf:type owl:Class ;
 :MainCharacter rdf:type owl:Class ;
                owl:equivalentClass [ owl:intersectionOf ( :Character
                                                           [ rdf:type owl:Restriction ;
-                                                            owl:onProperty <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> ;
+                                                            owl:onProperty objectrole:hasRole ;
                                                             owl:someValuesFrom :Main
                                                           ]
                                                         ) ;
@@ -436,7 +483,7 @@ po:Series rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#NarrativeRole
 :NarrativeRole rdf:type owl:Class ;
-               rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role> ;
+               rdfs:subClassOf objectrole:Role ;
                rdfs:comment "A role of a character in a fiction work"@en ;
                rdfs:label "Ruolo Narrativo"@it .
 
@@ -450,7 +497,7 @@ po:Series rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#ProductionRole
 :ProductionRole rdf:type owl:Class ;
-                rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role> ;
+                rdfs:subClassOf objectrole:Role ;
                 rdfs:comment "A role involved in the production of a programmme"@en ;
                 rdfs:label "Ruolo di Produzione"@it .
 
@@ -465,7 +512,7 @@ po:Series rdf:type owl:Class ;
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#SoundDirector
 :SoundDirector rdf:type owl:Class ;
                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                     owl:onProperty <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> ;
+                                     owl:onProperty objectrole:hasRole ;
                                      owl:someValuesFrom :SoundDirectorRole
                                    ] ;
                rdfs:subClassOf :RealPerson ;
@@ -498,7 +545,7 @@ po:Series rdf:type owl:Class ;
 :SupportingCharacter rdf:type owl:Class ;
                      owl:equivalentClass [ owl:intersectionOf ( :Character
                                                                 [ rdf:type owl:Restriction ;
-                                                                  owl:onProperty <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> ;
+                                                                  owl:onProperty objectrole:hasRole ;
                                                                   owl:someValuesFrom :Supporting
                                                                 ]
                                                               ) ;
@@ -526,7 +573,7 @@ po:Series rdf:type owl:Class ;
 :VillainCharacter rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( :Character
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> ;
+                                                               owl:onProperty objectrole:hasRole ;
                                                                owl:someValuesFrom :Villain
                                                              ]
                                                            ) ;
@@ -540,7 +587,7 @@ po:Series rdf:type owl:Class ;
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#VoiceActor
 :VoiceActor rdf:type owl:Class ;
             owl:equivalentClass [ rdf:type owl:Restriction ;
-                                  owl:onProperty <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> ;
+                                  owl:onProperty objectrole:hasRole ;
                                   owl:someValuesFrom :VoiceActorRole
                                 ] ;
             rdfs:subClassOf :RealPerson ;
@@ -586,7 +633,7 @@ foaf:Person rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Aya_Endou
 :Aya_Endou rdf:type owl:NamedIndividual ;
-           <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :voice_actor_Yurika_Fukahori ;
+           objectrole:hasRole :voice_actor_Yurika_Fukahori ;
            rdfs:comment "A voice actor."@en ;
            rdfs:label "Aya Endou"@jp .
 
@@ -612,6 +659,7 @@ foaf:Person rdf:type owl:Class ;
                         :Mystery ;
               :hasOpening :Flyers ;
               :producedBy :Madhouse ;
+              list:size 12 ;
               :firstAiring "2015-01-10T00:00:00"^^xsd:dateTime ;
               rdfs:comment "A programme."@en ;
               rdfs:label "Death Parade"@en .
@@ -778,7 +826,7 @@ foaf:Person rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Decim
 :Decim rdf:type owl:NamedIndividual ;
-       <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :Death_Parade_main ;
+       objectrole:hasRole :Death_Parade_main ;
        rdfs:comment "A character in Death Parade."@en ;
        rdfs:label "Decim"@jp .
 
@@ -791,7 +839,7 @@ foaf:Person rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Etsuko_Ichihara
 :Etsuko_Ichihara rdf:type owl:NamedIndividual ;
-                 <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :voice_actor_Hitoha_Miyazumi ;
+                 objectrole:hasRole :voice_actor_Hitoha_Miyazumi ;
                  rdfs:comment "A voice actor."@en ;
                  rdfs:label "Etsuko Ichihara"@jp .
 
@@ -810,35 +858,35 @@ foaf:Person rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Ginti
 :Ginti rdf:type owl:NamedIndividual ;
-       <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :Death_Parade_support ;
+       objectrole:hasRole :Death_Parade_support ;
        rdfs:comment "A character in Death Parade."@en ;
        rdfs:label "Ginti"@jp .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Hitoha_Miyamizu
 :Hitoha_Miyamizu rdf:type owl:NamedIndividual ;
-                 <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :Kimi_No_Na_Wa_support ;
+                 objectrole:hasRole :Kimi_No_Na_Wa_support ;
                  rdfs:comment "A character in Kimi No Na Wa."@en ;
                  rdfs:label "Hitoha Miyamizu"@jp .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Junichi_Katsuragi
 :Junichi_Katsuragi rdf:type owl:NamedIndividual ;
-                   <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :Sakamichi_No_Apollon_support ;
+                   objectrole:hasRole :Sakamichi_No_Apollon_support ;
                    rdfs:comment "Character in Sakamichi No Apollon."@en ;
                    rdfs:label "Junichi Katsuragi"@jp .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Junichi_Suwabe
 :Junichi_Suwabe rdf:type owl:NamedIndividual ;
-                <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :voice_actor_Junichi_Katsuragi ;
+                objectrole:hasRole :voice_actor_Junichi_Katsuragi ;
                 rdfs:comment "A voice actor."@en ;
                 rdfs:label "Junichi Suwabe"@jp .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kaoru_Nishimi
 :Kaoru_Nishimi rdf:type owl:NamedIndividual ;
-               <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :Sakamichi_No_Apollon_main ;
+               objectrole:hasRole :Sakamichi_No_Apollon_main ;
                rdfs:comment "Character in Sakamichi No Apollon."@en ;
                rdfs:label "Kaoru Nishimi"@jp .
 
@@ -910,21 +958,21 @@ foaf:Person rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Makoto_Shinkai
 :Makoto_Shinkai rdf:type owl:NamedIndividual ;
-                <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :Kimi_No_Na_Wa_director ;
+                objectrole:hasRole :Kimi_No_Na_Wa_director ;
                 rdfs:comment "A director."@en ;
                 rdfs:label "Makoto Shinkai"@jp .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Mitsuha_Miyamizu
 :Mitsuha_Miyamizu rdf:type owl:NamedIndividual ;
-                  <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :Kimi_No_Na_Wa_main ;
+                  objectrole:hasRole :Kimi_No_Na_Wa_main ;
                   rdfs:comment "A character in Kimi No Na Wa."@en ;
                   rdfs:label "Mitsuha Miyamizu"@jp .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Mone_Kamishiraishi
 :Mone_Kamishiraishi rdf:type owl:NamedIndividual ;
-                    <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :voice_actor_Mitsuha_Miyamizu ;
+                    objectrole:hasRole :voice_actor_Mitsuha_Miyamizu ;
                     rdfs:comment "A voice actor."@en ;
                     rdfs:label "Mone Kamishiraishi"@jp .
 
@@ -943,21 +991,21 @@ foaf:Person rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Nona
 :Nona rdf:type owl:NamedIndividual ;
-      <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :Death_Parade_villain ;
+      objectrole:hasRole :Death_Parade_villain ;
       rdfs:comment "A character in Death Parade."@en ;
       rdfs:label "Nona"@jp .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#RItsuko_Mukae
 :RItsuko_Mukae rdf:type owl:NamedIndividual ;
-               <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :Sakamichi_No_Apollon_support ;
+               objectrole:hasRole :Sakamichi_No_Apollon_support ;
                rdfs:comment "Character in Sakamichi No Apollon."@en ;
                rdfs:label "Ritsuko Mukae"@jp .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Radwimps
 :Radwimps rdf:type owl:NamedIndividual ;
-          <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :Kimi_No_Na_Wa_sound_director ;
+          objectrole:hasRole :Kimi_No_Na_Wa_sound_director ;
           rdfs:comment "A sound director."@en ;
           rdfs:label "Radwimps"@en .
 
@@ -970,21 +1018,21 @@ foaf:Person rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Rumu_Ookubo
 :Rumu_Ookubo rdf:type owl:NamedIndividual ;
-             <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :voice_actor_Nona ;
+             objectrole:hasRole :voice_actor_Nona ;
              rdfs:comment "A voice actor."@en ;
              rdfs:label "Rumi Ookubo"@jp .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Ryouhei_Kimura
 :Ryouhei_Kimura rdf:type owl:NamedIndividual ;
-                <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :voice_actor_Kaoru_Nishimi ;
+                objectrole:hasRole :voice_actor_Kaoru_Nishimi ;
                 rdfs:comment "A voice actor."@en ;
                 rdfs:label "Ryhouhei Kimura"@jp .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Ryunosuke_Kamiki
 :Ryunosuke_Kamiki rdf:type owl:NamedIndividual ;
-                  <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :voice_actor_Taki_Tachibana ;
+                  objectrole:hasRole :voice_actor_Taki_Tachibana ;
                   rdfs:comment "A voice actor."@en ;
                   rdfs:label "Ryunosuke Kamiki"@jp .
 
@@ -998,6 +1046,7 @@ foaf:Person rdf:type owl:Class ;
                                 :Slice_Of_Life ;
                       :hasOpening :Sakamichi_No_Melody ;
                       :producedBy :MAPPA ;
+                      list:size 12 ;
                       :englishTitle "Kids On The Slope"^^xsd:string ;
                       :firstAiring "2012-04-13T00:00:00"^^xsd:dateTime ;
                       rdfs:comment "A programme."@en ;
@@ -1175,14 +1224,14 @@ foaf:Person rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sentarou_Kawabuchi
 :Sentarou_Kawabuchi rdf:type owl:NamedIndividual ;
-                    <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :Sakamichi_No_Apollon_main ;
+                    objectrole:hasRole :Sakamichi_No_Apollon_main ;
                     rdfs:comment "Character in Sakamichi No Apollon."@en ;
                     rdfs:label "Sentaro Kawabuchi"@jp .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Shinichiro_Watanabe
 :Shinichiro_Watanabe rdf:type owl:NamedIndividual ;
-                     <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :Sakamichi_No_Apollon_director ;
+                     objectrole:hasRole :Sakamichi_No_Apollon_director ;
                      rdfs:comment "The Director of Sakamichi No Apollon."@en ;
                      rdfs:label "Shinichiro Watanabe"@jp .
 
@@ -1195,36 +1244,36 @@ foaf:Person rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Taki_Tachibana
 :Taki_Tachibana rdf:type owl:NamedIndividual ;
-                <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :Kimi_No_Na_Wa_main ;
+                objectrole:hasRole :Kimi_No_Na_Wa_main ;
                 rdfs:comment "A character in Kimi No Na Wa."@en ;
                 rdfs:label "Taki Tachibana"@jp .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Tomoaki_Maeno
 :Tomoaki_Maeno rdf:type owl:NamedIndividual ;
-               <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :voice_actor_Decim ;
+               objectrole:hasRole :voice_actor_Decim ;
                rdfs:comment "A voice actor."@en ;
                rdfs:label "Tomoaki Maeno"@jp .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Yoko_Kanno
 :Yoko_Kanno rdf:type owl:NamedIndividual ;
-            <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :Sakamichi_No_Apollon_Sound_Director ;
+            objectrole:hasRole :Sakamichi_No_Apollon_Sound_Director ;
             rdfs:comment "A sound director."@en ;
             rdfs:label "Yoko Kanno"@jp .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Yoshimasa_Hosoya
 :Yoshimasa_Hosoya rdf:type owl:NamedIndividual ;
-                  <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :voice_actor_Ginti ,
-                                                                                        :voice_actor_Sentaro_Kawabuchi ;
+                  objectrole:hasRole :voice_actor_Ginti ,
+                                     :voice_actor_Sentaro_Kawabuchi ;
                   rdfs:comment "A voice actor."@en ;
                   rdfs:label "Yoshimasa Hosoya"@jp .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Yuki_Hayashi
 :Yuki_Hayashi rdf:type owl:NamedIndividual ;
-              <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :Death_Parade_sound_director ;
+              objectrole:hasRole :Death_Parade_sound_director ;
               rdfs:comment "A sound director."@en ;
               rdfs:label "Yuki Hayashi"@jp .
 
@@ -1237,21 +1286,21 @@ foaf:Person rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Yurika_Fukahori
 :Yurika_Fukahori rdf:type owl:NamedIndividual ;
-                 <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :Sakamichi_No_Apollon_support ;
+                 objectrole:hasRole :Sakamichi_No_Apollon_support ;
                  rdfs:comment "Character in Sakamichi No Apollon."@en ;
                  rdfs:label "Yurika Fukahori"@jp .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Yuuka_Nanri
 :Yuuka_Nanri rdf:type owl:NamedIndividual ;
-             <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :voice_actor_Ritsuko_Mukae ;
+             objectrole:hasRole :voice_actor_Ritsuko_Mukae ;
              rdfs:comment "A voice actor."@en ;
              rdfs:label "Yuuka Nanri"@jp .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#Yuzuru_Tachikawa
 :Yuzuru_Tachikawa rdf:type owl:NamedIndividual ;
-                  <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> :Death_Parade_director ;
+                  objectrole:hasRole :Death_Parade_director ;
                   rdfs:comment "A director."@en ;
                   rdfs:label "Yuzuru Tachikawa"@jp .
 
@@ -1669,5 +1718,203 @@ foaf:Person rdf:type owl:Class ;
                       )
 ] .
 
+
+#################################################################
+#    Rules
+#################################################################
+
+:p rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:r rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:prog rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:c rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:c1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:c2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:s rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Relation beween a programme and its director"^^xsd:string ;
+   rdfs:label "directedBy"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> objectrole:hasRole ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :p ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :r
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> :DirectorRole ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :r
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :roleIn ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :r ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :prog
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :directedBy ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :prog ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :p
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Relation between a character and a programme in which it has the main role."^^xsd:string ;
+   rdfs:label "mainOf"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :characterIn ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :c ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :p
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> :MainCharacter ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :c
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :mainOf ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :c ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :p
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Relation between to main characters in a programme"^^xsd:string ;
+   rdfs:label "costarring"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :MainCharacter ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :c1
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :characterIn ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :c1 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :p
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> :MainCharacter ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :c2
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :characterIn ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :c2 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :p
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :c1 ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :c2
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :costarring ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :c1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :c2
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Relation between a person and a production studio for which he/she woorked for in the making of a programme."^^xsd:string ;
+   rdfs:label "workedFor"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> objectrole:hasRole ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :p ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :r
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :productionRoleIn ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :r ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :prog
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :producedBy ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :prog ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :s
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :workedFor ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :p ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :s
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Sets value True to property short series if a series has less than 15 episodes."^^xsd:string ;
+   rdfs:label "shortSeries"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> list:size ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :p ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :s
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                  <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                               rdf:first :s ;
+                                                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                                                          rdf:first 15 ;
+                                                                                                                          rdf:rest rdf:nil
+                                                                                                                        ]
+                                                                                                             ]
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :shortSeries ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :p ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

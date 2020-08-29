@@ -1,90 +1,90 @@
-@prefix : <http://www.semanticweb.org/eladi/ontologies/anime-ontology-inferred#> .
+@prefix : <http://www.semanticweb.org/eladi/ontologies/anon-inferred#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/eladi/ontologies/anime-ontology-inferred> .
+@base <http://www.semanticweb.org/eladi/ontologies/anon-inferred> .
 
-<http://www.semanticweb.org/eladi/ontologies/anime-ontology-inferred> rdf:type owl:Ontology ;
-                                                                       <http://purl.org/dc/elements/1.1/creator> "Enrico Ladisa" ;
-                                                                       <http://purl.org/dc/elements/1.1/date> "2020-08-20" ;
-                                                                       <http://purl.org/dc/elements/1.1/description> "Ontologia per la rappresentazione e la catalogazione delle opere di animazione giapponesi, quali film, serie di animazione e cortometraggi."@it ;
-                                                                       <http://purl.org/dc/elements/1.1/title> "Anime Ontology" ;
-                                                                       <http://purl.org/vocab/vann/preferredNamespacePrefix> "anon" ;
-                                                                       <http://purl.org/vocab/vann/preferredNamespaceUri> "http://www.semanticweb.org/eladi/ontologies/anime-ontology#" ;
-                                                                       <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#coversRequirements> "What are the items (elements) in this list?"^^xsd:string ,
-                                                                                                                                                                 "What are the items contained in this bag? "^^xsd:string ,
-                                                                                                                                                                 "What bag is this item an element of?"^^xsd:string ,
-                                                                                                                                                                 "What concept is assigned to this entity? Which category does this entity belong to?"^^xsd:string ,
-                                                                                                                                                                 "What is before what?,What's next?,What's immediately following this?" ,
-                                                                                                                                                                 "What is the first/last item in this list?"^^xsd:string ,
-                                                                                                                                                                 "What is the length (size) of this list?"^^xsd:string ,
-                                                                                                                                                                 "What is the size of this bag?"^^xsd:string ,
-                                                                                                                                                                 "What it the next/previous item in the list?"^^xsd:string ,
-                                                                                                                                                                 "What resource does this item refer to?"^^xsd:string ,
-                                                                                                                                                                 "What resource does this list item contain?"^^xsd:string ,
-                                                                                                                                                                 "What role does this object play? which objects do play that role?"^^xsd:string ,
-                                                                                                                                                                 "What things are contained in this collection (community, collective)? What collections this thing is member of?" ,
-                                                                                                                                                                 """which agent does play this role? 
+<http://www.semanticweb.org/eladi/ontologies/anon-inferred> rdf:type owl:Ontology ;
+                                                             <http://purl.org/dc/elements/1.1/creator> "Enrico Ladisa" ;
+                                                             <http://purl.org/dc/elements/1.1/date> "2020-08-20" ;
+                                                             <http://purl.org/dc/elements/1.1/description> "Ontologia per la rappresentazione e la catalogazione delle opere di animazione giapponesi, quali film, serie di animazione e cortometraggi."@it ;
+                                                             <http://purl.org/dc/elements/1.1/title> "Anime Ontology" ;
+                                                             <http://purl.org/vocab/vann/preferredNamespacePrefix> "anon" ;
+                                                             <http://purl.org/vocab/vann/preferredNamespaceUri> "http://www.semanticweb.org/eladi/ontologies/anime-ontology#" ;
+                                                             <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#coversRequirements> "What are the items (elements) in this list?"^^xsd:string ,
+                                                                                                                                                       "What are the items contained in this bag? "^^xsd:string ,
+                                                                                                                                                       "What bag is this item an element of?"^^xsd:string ,
+                                                                                                                                                       "What concept is assigned to this entity? Which category does this entity belong to?"^^xsd:string ,
+                                                                                                                                                       "What is before what?,What's next?,What's immediately following this?" ,
+                                                                                                                                                       "What is the first/last item in this list?"^^xsd:string ,
+                                                                                                                                                       "What is the length (size) of this list?"^^xsd:string ,
+                                                                                                                                                       "What is the size of this bag?"^^xsd:string ,
+                                                                                                                                                       "What it the next/previous item in the list?"^^xsd:string ,
+                                                                                                                                                       "What resource does this item refer to?"^^xsd:string ,
+                                                                                                                                                       "What resource does this list item contain?"^^xsd:string ,
+                                                                                                                                                       "What role does this object play? which objects do play that role?"^^xsd:string ,
+                                                                                                                                                       "What things are contained in this collection (community, collective)? What collections this thing is member of?" ,
+                                                                                                                                                       """which agent does play this role? 
 what is the role that played by that agent?""" ;
-                                                                       <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#extractedFrom> "http://swan.mindinformatics.org/ontologies/1.2/collections.owl"^^xsd:string ,
-                                                                                                                                                            "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl" ;
-                                                                       <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasAuthor> "Aldo Gangemi" ,
-                                                                                                                                                        "PaoloCiccarese"^^xsd:string ,
-                                                                                                                                                        "Sara Bernardini" ,
-                                                                                                                                                        "Valentina Presutti" ;
-                                                                       <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent> "http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl"^^xsd:string ,
-                                                                                                                                                           "http://www.ontologydesignpatterns.org/cp/owl/sequence.owl"^^xsd:string ;
-                                                                       <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasConsequences> "Collections and their members can be associated. Time-indexed membership cannot be represented though (you need a situation-based pattern)." ,
-                                                                                                                                                              "It is possible to make asser tions about e.g., categories, types, roles, which are typically considered at the meta-level of an ontology. Instances of Concept reify such elements, which are therefore put in the ordinary domain of an ontology. It is not possible to parametrize the classiﬁcation over different dimensions e.g., time, space, etc. "^^xsd:string ,
-                                                                                                                                                              "It is possible to make asser tions about roles, which are typically considered at the meta-level of an ontology. Instances of Role reify such elements, which are therefore put in the ordinar y domain of an ontology. It is not possible to parametrize the classiﬁcation over different dimensions e.g., time, space, etc."^^xsd:string ,
-                                                                                                                                                              "This CP allows designers to make assertions on roles played by agents without involving the agents that play that roles, and vice versa. It does not allow to express temporariness of roles." ,
-                                                                                                                                                              "We can represent and reason over transitive or intransitive sequences of any kind. However, since coreference cannot be expressed in OWL, it is not possible to represent and reason over loops and other sequences involving coreference." ;
-                                                                       <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasIntent> "To model bags of items (elements). The Bag is characterized by a collection that can have multiple copies of each object. "^^xsd:string ,
-                                                                                                                                                        "To represent agents and the roles they play." ,
-                                                                                                                                                        "To represent domain (not set theory) membership." ,
-                                                                                                                                                        "To represent ordered collections, i.e. lists."^^xsd:string ,
-                                                                                                                                                        """To represent sequence schemas. It defines the notion of transitive and intransitive precedence and their inverses. 
+                                                             <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#extractedFrom> "http://swan.mindinformatics.org/ontologies/1.2/collections.owl"^^xsd:string ,
+                                                                                                                                                  "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl" ;
+                                                             <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasAuthor> "Aldo Gangemi" ,
+                                                                                                                                              "PaoloCiccarese"^^xsd:string ,
+                                                                                                                                              "Sara Bernardini" ,
+                                                                                                                                              "Valentina Presutti" ;
+                                                             <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent> "http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl"^^xsd:string ,
+                                                                                                                                                 "http://www.ontologydesignpatterns.org/cp/owl/sequence.owl"^^xsd:string ;
+                                                             <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasConsequences> "Collections and their members can be associated. Time-indexed membership cannot be represented though (you need a situation-based pattern)." ,
+                                                                                                                                                    "It is possible to make asser tions about e.g., categories, types, roles, which are typically considered at the meta-level of an ontology. Instances of Concept reify such elements, which are therefore put in the ordinary domain of an ontology. It is not possible to parametrize the classiﬁcation over different dimensions e.g., time, space, etc. "^^xsd:string ,
+                                                                                                                                                    "It is possible to make asser tions about roles, which are typically considered at the meta-level of an ontology. Instances of Role reify such elements, which are therefore put in the ordinar y domain of an ontology. It is not possible to parametrize the classiﬁcation over different dimensions e.g., time, space, etc."^^xsd:string ,
+                                                                                                                                                    "This CP allows designers to make assertions on roles played by agents without involving the agents that play that roles, and vice versa. It does not allow to express temporariness of roles." ,
+                                                                                                                                                    "We can represent and reason over transitive or intransitive sequences of any kind. However, since coreference cannot be expressed in OWL, it is not possible to represent and reason over loops and other sequences involving coreference." ;
+                                                             <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasIntent> "To model bags of items (elements). The Bag is characterized by a collection that can have multiple copies of each object. "^^xsd:string ,
+                                                                                                                                              "To represent agents and the roles they play." ,
+                                                                                                                                              "To represent domain (not set theory) membership." ,
+                                                                                                                                              "To represent ordered collections, i.e. lists."^^xsd:string ,
+                                                                                                                                              """To represent sequence schemas. It defines the notion of transitive and intransitive precedence and their inverses. 
 It can then be used between tasks, processes, time intervals, spatially locate objects, situations, etc.""" ,
-                                                                                                                                                        """To represent the relations between concepts (roles, task, parameters) and entities (person, events, values), which concepts can be assigned to. To formalize the application (e.g. tagging) of informal knowledge 
+                                                                                                                                              """To represent the relations between concepts (roles, task, parameters) and entities (person, events, values), which concepts can be assigned to. To formalize the application (e.g. tagging) of informal knowledge 
 organization systems such as lexica, thesauri, subject directories, folksonomies, etc., where concepts are ﬁrst-order elements."""^^xsd:string ,
-                                                                                                                                                        "To represents objects and the roles they play." ;
-                                                                       <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#isSpecializationOf> "http://www.ontologydesignpatterns.org/cp/owl/classification.owl" ,
-                                                                                                                                                                 "http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl" ,
-                                                                                                                                                                 "http://www.ontologydesignpatterns.org/cp/owl/sequence.owl"^^xsd:string ;
-                                                                       <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#reengineeredFrom> "http://swan.mindinformatics.org/ontologies/1.2/collections.owl"^^xsd:string ;
-                                                                       <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs> "It specializes the classiﬁcation CP. It is specialized by agent role."^^xsd:string ,
-                                                                                                                                                         "The time indexed person role CP available at http://www.ontologydesignpatterns.org/cp/owl/timeiindexedpersonrole.owl allows to represent temporariness of roles played by persons. It can be generalized for including objects or, alternatively the n-ary classification CP avaliable at http://www.ontologydesignpatterns.org/cp/owl/naryclassification.owl can be specialized in order to obtain the same expressivity." ,
-                                                                                                                                                         "TimeIndexedMembership" ,
-                                                                                                                                                         "Typically combined with descriptionandsituation. It is specialized by cat:objectrole. The n-ary classiﬁcation CP provides an alternative to this if classiﬁcation has to be qualiﬁed over different dimensions."^^xsd:string ,
-                                                                                                                                                         "http://www.ontologydesignpatterns.org/cp/owl/bag.owl"^^xsd:string ,
-                                                                                                                                                         "http://www.ontologydesignpatterns.org/cp/owl/list.owl"^^xsd:string ,
-                                                                                                                                                         "http://www.ontologydesignpatterns.org/cp/owl/set.owl"^^xsd:string ;
-                                                                       <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios> "Mac OSX 10.5 is classiﬁed as an an operating system in the Fujitsu-Siemens product catalog."^^xsd:string ,
-                                                                                                                                                        "My saxophone collection includes a Mark VI tenor, a Balanced Action alto, and a Conn Transitional bari." ,
-                                                                                                                                                        "She greeted us all in her various roles of mother, friend, and daughter." ,
-                                                                                                                                                        "This old glass is used as a ﬂower pot."^^xsd:string ;
-                                                                       rdfs:comment "It is extracted from DOLCE Ultra Lite ontology and specialize the classification CP. Object is an Entity, and Role is a Concept. The hasRole relation specializes the classifies relation, while the isRoleOf specializes the isClassifiedBy relation." ,
-                                                                                    "The classification content ontology design pattern. This CP represents the realtions between concepts e.g., roles, task, and entities to which concepts are assigned to e.g., person, activities. The CP is extracted form DOLCE Ultra Lite ontology." ,
-                                                                                    """The collection entity pattern. 
+                                                                                                                                              "To represents objects and the roles they play." ;
+                                                             <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#isSpecializationOf> "http://www.ontologydesignpatterns.org/cp/owl/classification.owl" ,
+                                                                                                                                                       "http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl" ,
+                                                                                                                                                       "http://www.ontologydesignpatterns.org/cp/owl/sequence.owl"^^xsd:string ;
+                                                             <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#reengineeredFrom> "http://swan.mindinformatics.org/ontologies/1.2/collections.owl"^^xsd:string ;
+                                                             <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs> "It specializes the classiﬁcation CP. It is specialized by agent role."^^xsd:string ,
+                                                                                                                                               "The time indexed person role CP available at http://www.ontologydesignpatterns.org/cp/owl/timeiindexedpersonrole.owl allows to represent temporariness of roles played by persons. It can be generalized for including objects or, alternatively the n-ary classification CP avaliable at http://www.ontologydesignpatterns.org/cp/owl/naryclassification.owl can be specialized in order to obtain the same expressivity." ,
+                                                                                                                                               "TimeIndexedMembership" ,
+                                                                                                                                               "Typically combined with descriptionandsituation. It is specialized by cat:objectrole. The n-ary classiﬁcation CP provides an alternative to this if classiﬁcation has to be qualiﬁed over different dimensions."^^xsd:string ,
+                                                                                                                                               "http://www.ontologydesignpatterns.org/cp/owl/bag.owl"^^xsd:string ,
+                                                                                                                                               "http://www.ontologydesignpatterns.org/cp/owl/list.owl"^^xsd:string ,
+                                                                                                                                               "http://www.ontologydesignpatterns.org/cp/owl/set.owl"^^xsd:string ;
+                                                             <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios> "Mac OSX 10.5 is classiﬁed as an an operating system in the Fujitsu-Siemens product catalog."^^xsd:string ,
+                                                                                                                                              "My saxophone collection includes a Mark VI tenor, a Balanced Action alto, and a Conn Transitional bari." ,
+                                                                                                                                              "She greeted us all in her various roles of mother, friend, and daughter." ,
+                                                                                                                                              "This old glass is used as a ﬂower pot."^^xsd:string ;
+                                                             rdfs:comment "It is extracted from DOLCE Ultra Lite ontology and specialize the classification CP. Object is an Entity, and Role is a Concept. The hasRole relation specializes the classifies relation, while the isRoleOf specializes the isClassifiedBy relation." ,
+                                                                          "The classification content ontology design pattern. This CP represents the realtions between concepts e.g., roles, task, and entities to which concepts are assigned to e.g., person, activities. The CP is extracted form DOLCE Ultra Lite ontology." ,
+                                                                          """The collection entity pattern. 
 It is extracted from DOLCE-UltraLite by partial clone of elements.""" ;
-                                                                       rdfs:label "Anime Ontology" ,
-                                                                                  "agent role" ,
-                                                                                  "classification" ,
-                                                                                  "collection entity" ,
-                                                                                  "membership" ,
-                                                                                  "ordering" ,
-                                                                                  "precedence" ,
-                                                                                  "sequence" ;
-                                                                       owl:versionInfo """1.1
+                                                             rdfs:label "Anime Ontology" ,
+                                                                        "agent role" ,
+                                                                        "classification" ,
+                                                                        "collection entity" ,
+                                                                        "membership" ,
+                                                                        "ordering" ,
+                                                                        "precedence" ,
+                                                                        "sequence" ;
+                                                             owl:versionInfo """1.1
 - Revised and annotated for ODP submission by Aldo Gangemi
 1.0
 - Created by Valentina Presutti and Sara Bernardini""" ,
-                                                                                       "1.1 added rdfs:isDefinedBy for all named entities"^^xsd:string ,
-                                                                                       "Created by Aldo Gangemi and Valentina Presutti"^^xsd:string ,
-                                                                                       "Created by Valentina Presutti"^^xsd:string ,
-                                                                                       "Created with TopBraid Composer"^^xsd:string .
+                                                                             "1.1 added rdfs:isDefinedBy for all named entities"^^xsd:string ,
+                                                                             "Created by Aldo Gangemi and Valentina Presutti"^^xsd:string ,
+                                                                             "Created by Valentina Presutti"^^xsd:string ,
+                                                                             "Created with TopBraid Composer"^^xsd:string .
 
 #################################################################
 #    Annotation properties
@@ -112,6 +112,10 @@ It is extracted from DOLCE-UltraLite by partial clone of elements.""" ;
 
 ###  http://purl.org/vocab/vann/preferredNamespaceUri
 <http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#coversRequirements
@@ -384,6 +388,24 @@ Subproperties can be defined in order to distinguish the different uses."""^^xsd
                                                                          rdfs:label "personaggio in"@it .
 
 
+###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#costarring
+<http://www.semanticweb.org/eladi/ontologies/anime-ontology#costarring> rdf:type owl:ObjectProperty ;
+                                                                        owl:inverseOf <http://www.semanticweb.org/eladi/ontologies/anime-ontology#costarring> ;
+                                                                        rdf:type owl:SymmetricProperty ;
+                                                                        rdfs:domain <http://www.semanticweb.org/eladi/ontologies/anime-ontology#MainCharacter> ;
+                                                                        rdfs:range <http://www.semanticweb.org/eladi/ontologies/anime-ontology#MainCharacter> ;
+                                                                        rdfs:label "A relation between two main characters."@en ,
+                                                                                   "coprotagonista"@it .
+
+
+###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#directedBy
+<http://www.semanticweb.org/eladi/ontologies/anime-ontology#directedBy> rdf:type owl:ObjectProperty ;
+                                                                        rdfs:domain <http://purl.org/ontology/po/Programme> ;
+                                                                        rdfs:range <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Director> ;
+                                                                        rdfs:comment "A relation between a programme and its director."@en ;
+                                                                        rdfs:label "diretto da"@it .
+
+
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#dubbedBy
 <http://www.semanticweb.org/eladi/ontologies/anime-ontology#dubbedBy> rdf:type owl:ObjectProperty ;
                                                                       owl:inverseOf <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceOf> ;
@@ -458,6 +480,14 @@ Subproperties can be defined in order to distinguish the different uses."""^^xsd
                                                                          rdfs:range <http://purl.org/ontology/po/Series> ;
                                                                          rdfs:comment "A relation between an episode and the series which is part of."@en ;
                                                                          rdfs:label "episodio di"@it .
+
+
+###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#mainOf
+<http://www.semanticweb.org/eladi/ontologies/anime-ontology#mainOf> rdf:type owl:ObjectProperty ;
+                                                                    rdfs:domain <http://www.semanticweb.org/eladi/ontologies/anime-ontology#MainCharacter> ;
+                                                                    rdfs:range <http://purl.org/ontology/po/Programme> ;
+                                                                    rdfs:comment "Relation between a character and the programme in which has a main role."@en ;
+                                                                    rdfs:label "protagonista di"@it .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#narrativeRoleIn
@@ -552,6 +582,14 @@ Subproperties can be defined in order to distinguish the different uses."""^^xsd
                                                                        rdfs:label "ruolo doppiaggio"@it .
 
 
+###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor
+<http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor> rdf:type owl:ObjectProperty ;
+                                                                       rdfs:domain <http://www.semanticweb.org/eladi/ontologies/anime-ontology#RealPerson> ;
+                                                                       rdfs:range <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Studio> ;
+                                                                       rdfs:comment "Relation between a person and a production studio for which he/she woorked for in the making of a programme."@en ;
+                                                                       rdfs:label "ha lavorato per"@it .
+
+
 #################################################################
 #    Data properties
 #################################################################
@@ -595,6 +633,14 @@ Subproperties can be defined in order to distinguish the different uses."""^^xsd
                                                                      rdfs:range xsd:nonNegativeInteger ;
                                                                      rdfs:comment "The duration of the programme in minutes."@en ;
                                                                      rdfs:label "durata"@it .
+
+
+###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#shortSeries
+<http://www.semanticweb.org/eladi/ontologies/anime-ontology#shortSeries> rdf:type owl:DatatypeProperty ;
+                                                                         rdfs:domain <http://purl.org/ontology/po/Programme> ;
+                                                                         rdfs:range xsd:boolean ;
+                                                                         rdfs:comment "Boolean value that is true if the series has less then 15 episodes."@en ;
+                                                                         rdfs:label "serie breve"@it .
 
 
 #################################################################
@@ -1108,6 +1154,7 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                        <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voice_actor_Yurika_Fukahori> ;
                                                                        <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceActorIn> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon> ;
                                                                        <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceOf> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Yurika_Fukahori> ;
+                                                                       <http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#MAPPA> ;
                                                                        rdfs:comment "A voice actor."@en ;
                                                                        rdfs:label "Aya Endou"@jp .
 
@@ -1159,6 +1206,7 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                                                                                                         <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Death_Parade_ep_10> ,
                                                                                                                                                         <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Death_Parade_ep_11> ,
                                                                                                                                                         <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Death_Parade_ep_12> ;
+                                                                          <http://www.semanticweb.org/eladi/ontologies/anime-ontology#directedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Yuzuru_Tachikawa> ;
                                                                           <http://www.semanticweb.org/eladi/ontologies/anime-ontology#hasEnding> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Last_Theater> ;
                                                                           <http://www.semanticweb.org/eladi/ontologies/anime-ontology#hasEpisode> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Death_Parade_ep_01> ,
                                                                                                                                                   <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Death_Parade_ep_02> ,
@@ -1177,7 +1225,9 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                                                                                                 <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Mystery> ;
                                                                           <http://www.semanticweb.org/eladi/ontologies/anime-ontology#hasOpening> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Flyers> ;
                                                                           <http://www.semanticweb.org/eladi/ontologies/anime-ontology#producedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Madhouse> ;
+                                                                          <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#size> 12 ;
                                                                           <http://www.semanticweb.org/eladi/ontologies/anime-ontology#firstAiring> "2015-01-10T00:00:00"^^xsd:dateTime ;
+                                                                          <http://www.semanticweb.org/eladi/ontologies/anime-ontology#shortSeries> "true"^^xsd:boolean ;
                                                                           rdfs:comment "A programme."@en ;
                                                                           rdfs:label "Death Parade"@en .
 
@@ -1708,6 +1758,7 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                    <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Death_Parade_main> ;
                                                                    <http://www.semanticweb.org/eladi/ontologies/anime-ontology#characterIn> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Death_Parade> ;
                                                                    <http://www.semanticweb.org/eladi/ontologies/anime-ontology#dubbedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Tomoaki_Maeno> ;
+                                                                   <http://www.semanticweb.org/eladi/ontologies/anime-ontology#mainOf> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Death_Parade> ;
                                                                    rdfs:comment "A character in Death Parade."@en ;
                                                                    rdfs:label "Decim"@jp .
 
@@ -1731,6 +1782,7 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                              <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voice_actor_Hitoha_Miyazumi> ;
                                                                              <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceActorIn> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kimi_No_Na_Wa> ;
                                                                              <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceOf> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Hitoha_Miyamizu> ;
+                                                                             <http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Comix_Wave_Film> ;
                                                                              rdfs:comment "A voice actor."@en ;
                                                                              rdfs:label "Etsuko Ichihara"@jp .
 
@@ -1811,6 +1863,7 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                             <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voice_actor_Junichi_Katsuragi> ;
                                                                             <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceActorIn> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon> ;
                                                                             <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceOf> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Junichi_Katsuragi> ;
+                                                                            <http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#MAPPA> ;
                                                                             rdfs:comment "A voice actor."@en ;
                                                                             rdfs:label "Junichi Suwabe"@jp .
 
@@ -1826,7 +1879,9 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                            <http://www.ontologydesignpatterns.org/cp/owl/classification.owl#isClassifiedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon_main> ;
                                                                            <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon_main> ;
                                                                            <http://www.semanticweb.org/eladi/ontologies/anime-ontology#characterIn> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon> ;
+                                                                           <http://www.semanticweb.org/eladi/ontologies/anime-ontology#costarring> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sentarou_Kawabuchi> ;
                                                                            <http://www.semanticweb.org/eladi/ontologies/anime-ontology#dubbedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Ryouhei_Kimura> ;
+                                                                           <http://www.semanticweb.org/eladi/ontologies/anime-ontology#mainOf> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon> ;
                                                                            rdfs:comment "Character in Sakamichi No Apollon."@en ;
                                                                            rdfs:label "Kaoru Nishimi"@jp .
 
@@ -1835,6 +1890,7 @@ The classifies relation relates concepts to entities at some time, but time can 
 <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kimi_No_Na_Wa> rdf:type owl:NamedIndividual ,
                                                                                     <http://purl.org/ontology/po/Programme> ,
                                                                                     <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Movie> ;
+                                                                           <http://www.semanticweb.org/eladi/ontologies/anime-ontology#directedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Makoto_Shinkai> ;
                                                                            <http://www.semanticweb.org/eladi/ontologies/anime-ontology#hasEnding> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Nandemonaiya> ;
                                                                            <http://www.semanticweb.org/eladi/ontologies/anime-ontology#hasGenre> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Drama> ,
                                                                                                                                                  <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Fantasy> ;
@@ -1939,6 +1995,7 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                                      <http://xmlns.com/foaf/0.1/Person> ;
                                                                             <http://www.ontologydesignpatterns.org/cp/owl/classification.owl#isClassifiedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kimi_No_Na_Wa_director> ;
                                                                             <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kimi_No_Na_Wa_director> ;
+                                                                            <http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Comix_Wave_Film> ;
                                                                             rdfs:comment "A director."@en ;
                                                                             rdfs:label "Makoto Shinkai"@jp .
 
@@ -1954,7 +2011,9 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                               <http://www.ontologydesignpatterns.org/cp/owl/classification.owl#isClassifiedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kimi_No_Na_Wa_main> ;
                                                                               <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kimi_No_Na_Wa_main> ;
                                                                               <http://www.semanticweb.org/eladi/ontologies/anime-ontology#characterIn> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kimi_No_Na_Wa> ;
+                                                                              <http://www.semanticweb.org/eladi/ontologies/anime-ontology#costarring> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Taki_Tachibana> ;
                                                                               <http://www.semanticweb.org/eladi/ontologies/anime-ontology#dubbedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Mone_Kamishiraishi> ;
+                                                                              <http://www.semanticweb.org/eladi/ontologies/anime-ontology#mainOf> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kimi_No_Na_Wa> ;
                                                                               rdfs:comment "A character in Kimi No Na Wa."@en ;
                                                                               rdfs:label "Mitsuha Miyamizu"@jp .
 
@@ -1970,6 +2029,7 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                                 <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voice_actor_Mitsuha_Miyamizu> ;
                                                                                 <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceActorIn> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kimi_No_Na_Wa> ;
                                                                                 <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceOf> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Mitsuha_Miyamizu> ;
+                                                                                <http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Comix_Wave_Film> ;
                                                                                 rdfs:comment "A voice actor."@en ;
                                                                                 rdfs:label "Mone Kamishiraishi"@jp .
 
@@ -2032,6 +2092,7 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                                <http://xmlns.com/foaf/0.1/Person> ;
                                                                       <http://www.ontologydesignpatterns.org/cp/owl/classification.owl#isClassifiedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kimi_No_Na_Wa_sound_director> ;
                                                                       <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kimi_No_Na_Wa_sound_director> ;
+                                                                      <http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Comix_Wave_Film> ;
                                                                       rdfs:comment "A sound director."@en ;
                                                                       rdfs:label "Radwimps"@en .
 
@@ -2055,6 +2116,7 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                          <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voice_actor_Nona> ;
                                                                          <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceActorIn> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Death_Parade> ;
                                                                          <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceOf> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Nona> ;
+                                                                         <http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Madhouse> ;
                                                                          rdfs:comment "A voice actor."@en ;
                                                                          rdfs:label "Rumi Ookubo"@jp .
 
@@ -2070,6 +2132,7 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                             <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voice_actor_Kaoru_Nishimi> ;
                                                                             <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceActorIn> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon> ;
                                                                             <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceOf> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kaoru_Nishimi> ;
+                                                                            <http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#MAPPA> ;
                                                                             rdfs:comment "A voice actor."@en ;
                                                                             rdfs:label "Ryhouhei Kimura"@jp .
 
@@ -2085,6 +2148,7 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                               <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voice_actor_Taki_Tachibana> ;
                                                                               <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceActorIn> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kimi_No_Na_Wa> ;
                                                                               <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceOf> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Taki_Tachibana> ;
+                                                                              <http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Comix_Wave_Film> ;
                                                                               rdfs:comment "A voice actor."@en ;
                                                                               rdfs:label "Ryunosuke Kamiki"@jp .
 
@@ -2120,6 +2184,7 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                                                                                                                 <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon_Ep_10> ,
                                                                                                                                                                 <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon_Ep_11> ,
                                                                                                                                                                 <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon_Ep_12> ;
+                                                                                  <http://www.semanticweb.org/eladi/ontologies/anime-ontology#directedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Shinichiro_Watanabe> ;
                                                                                   <http://www.semanticweb.org/eladi/ontologies/anime-ontology#hasEnding> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Altair> ;
                                                                                   <http://www.semanticweb.org/eladi/ontologies/anime-ontology#hasEpisode> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon_Ep_01> ,
                                                                                                                                                           <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon_Ep_02> ,
@@ -2138,8 +2203,10 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                                                                                                         <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Slice_Of_Life> ;
                                                                                   <http://www.semanticweb.org/eladi/ontologies/anime-ontology#hasOpening> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Melody> ;
                                                                                   <http://www.semanticweb.org/eladi/ontologies/anime-ontology#producedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#MAPPA> ;
+                                                                                  <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#size> 12 ;
                                                                                   <http://www.semanticweb.org/eladi/ontologies/anime-ontology#englishTitle> "Kids On The Slope"^^xsd:string ;
                                                                                   <http://www.semanticweb.org/eladi/ontologies/anime-ontology#firstAiring> "2012-04-13T00:00:00"^^xsd:dateTime ;
+                                                                                  <http://www.semanticweb.org/eladi/ontologies/anime-ontology#shortSeries> "true"^^xsd:boolean ;
                                                                                   rdfs:comment "A programme."@en ;
                                                                                   rdfs:label "Sakamichi No Apollon"@jp .
 
@@ -2686,7 +2753,9 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                                 <http://www.ontologydesignpatterns.org/cp/owl/classification.owl#isClassifiedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon_main> ;
                                                                                 <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon_main> ;
                                                                                 <http://www.semanticweb.org/eladi/ontologies/anime-ontology#characterIn> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon> ;
+                                                                                <http://www.semanticweb.org/eladi/ontologies/anime-ontology#costarring> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kaoru_Nishimi> ;
                                                                                 <http://www.semanticweb.org/eladi/ontologies/anime-ontology#dubbedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Yoshimasa_Hosoya> ;
+                                                                                <http://www.semanticweb.org/eladi/ontologies/anime-ontology#mainOf> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon> ;
                                                                                 rdfs:comment "Character in Sakamichi No Apollon."@en ;
                                                                                 rdfs:label "Sentaro Kawabuchi"@jp .
 
@@ -2700,6 +2769,7 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                                           <http://xmlns.com/foaf/0.1/Person> ;
                                                                                  <http://www.ontologydesignpatterns.org/cp/owl/classification.owl#isClassifiedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon_director> ;
                                                                                  <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon_director> ;
+                                                                                 <http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#MAPPA> ;
                                                                                  rdfs:comment "The Director of Sakamichi No Apollon."@en ;
                                                                                  rdfs:label "Shinichiro Watanabe"@jp .
 
@@ -2723,7 +2793,9 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                             <http://www.ontologydesignpatterns.org/cp/owl/classification.owl#isClassifiedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kimi_No_Na_Wa_main> ;
                                                                             <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kimi_No_Na_Wa_main> ;
                                                                             <http://www.semanticweb.org/eladi/ontologies/anime-ontology#characterIn> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kimi_No_Na_Wa> ;
+                                                                            <http://www.semanticweb.org/eladi/ontologies/anime-ontology#costarring> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Mitsuha_Miyamizu> ;
                                                                             <http://www.semanticweb.org/eladi/ontologies/anime-ontology#dubbedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Ryunosuke_Kamiki> ;
+                                                                            <http://www.semanticweb.org/eladi/ontologies/anime-ontology#mainOf> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Kimi_No_Na_Wa> ;
                                                                             rdfs:comment "A character in Kimi No Na Wa."@en ;
                                                                             rdfs:label "Taki Tachibana"@jp .
 
@@ -2739,6 +2811,7 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                            <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voice_actor_Decim> ;
                                                                            <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceActorIn> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Death_Parade> ;
                                                                            <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceOf> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Decim> ;
+                                                                           <http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Madhouse> ;
                                                                            rdfs:comment "A voice actor."@en ;
                                                                            rdfs:label "Tomoaki Maeno"@jp .
 
@@ -2752,6 +2825,7 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                                  <http://xmlns.com/foaf/0.1/Person> ;
                                                                         <http://www.ontologydesignpatterns.org/cp/owl/classification.owl#isClassifiedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon_Sound_Director> ;
                                                                         <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon_Sound_Director> ;
+                                                                        <http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#MAPPA> ;
                                                                         rdfs:comment "A sound director."@en ;
                                                                         rdfs:label "Yoko Kanno"@jp .
 
@@ -2771,6 +2845,8 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                                                                                                         <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon> ;
                                                                               <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceOf> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Ginti> ,
                                                                                                                                                    <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sentarou_Kawabuchi> ;
+                                                                              <http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#MAPPA> ,
+                                                                                                                                                     <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Madhouse> ;
                                                                               rdfs:comment "A voice actor."@en ;
                                                                               rdfs:label "Yoshimasa Hosoya"@jp .
 
@@ -2784,6 +2860,7 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                                    <http://xmlns.com/foaf/0.1/Person> ;
                                                                           <http://www.ontologydesignpatterns.org/cp/owl/classification.owl#isClassifiedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Death_Parade_sound_director> ;
                                                                           <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Death_Parade_sound_director> ;
+                                                                          <http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Madhouse> ;
                                                                           rdfs:comment "A sound director."@en ;
                                                                           rdfs:label "Yuki Hayashi"@jp .
 
@@ -2824,6 +2901,7 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                          <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voice_actor_Ritsuko_Mukae> ;
                                                                          <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceActorIn> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Sakamichi_No_Apollon> ;
                                                                          <http://www.semanticweb.org/eladi/ontologies/anime-ontology#voiceOf> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#RItsuko_Mukae> ;
+                                                                         <http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#MAPPA> ;
                                                                          rdfs:comment "A voice actor."@en ;
                                                                          rdfs:label "Yuuka Nanri"@jp .
 
@@ -2837,6 +2915,7 @@ The classifies relation relates concepts to entities at some time, but time can 
                                                                                        <http://xmlns.com/foaf/0.1/Person> ;
                                                                               <http://www.ontologydesignpatterns.org/cp/owl/classification.owl#isClassifiedBy> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Death_Parade_director> ;
                                                                               <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Death_Parade_director> ;
+                                                                              <http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#Madhouse> ;
                                                                               rdfs:comment "A director."@en ;
                                                                               rdfs:label "Yuzuru Tachikawa"@jp .
 
@@ -3338,5 +3417,203 @@ The classifies relation relates concepts to entities at some time, but time can 
                       )
 ] .
 
+
+#################################################################
+#    Rules
+#################################################################
+
+<http://www.semanticweb.org/eladi/ontologies/anime-ontology#p> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/eladi/ontologies/anime-ontology#r> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/eladi/ontologies/anime-ontology#prog> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/eladi/ontologies/anime-ontology#c> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/eladi/ontologies/anime-ontology#c1> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/eladi/ontologies/anime-ontology#c2> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/eladi/ontologies/anime-ontology#s> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Relation beween a programme and its director"^^xsd:string ;
+   rdfs:label "directedBy"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#p> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#r>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#DirectorRole> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#r>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#roleIn> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#r> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#prog>
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#directedBy> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#prog> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#p>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Relation between a character and a programme in which it has the main role."^^xsd:string ;
+   rdfs:label "mainOf"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#characterIn> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#c> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#p>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#MainCharacter> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#c>
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#mainOf> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#c> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#p>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Relation between to main characters in a programme"^^xsd:string ;
+   rdfs:label "costarring"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#MainCharacter> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#c1>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#characterIn> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#c1> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#p>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#MainCharacter> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#c2>
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#characterIn> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#c2> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#p>
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#c1> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#c2>
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#costarring> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#c1> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#c2>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Relation between a person and a production studio for which he/she woorked for in the making of a programme."^^xsd:string ;
+   rdfs:label "workedFor"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#p> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#r>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#productionRoleIn> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#r> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#prog>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#producedBy> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#prog> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#s>
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#workedFor> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#p> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#s>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Sets value True to property short series if a series has less than 15 episodes."^^xsd:string ;
+   rdfs:label "shortSeries"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#size> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#p> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#s>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                  <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                               rdf:first <http://www.semanticweb.org/eladi/ontologies/anime-ontology#s> ;
+                                                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                                                          rdf:first 15 ;
+                                                                                                                          rdf:rest rdf:nil
+                                                                                                                        ]
+                                                                                                             ]
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#shortSeries> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/eladi/ontologies/anime-ontology#p> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
