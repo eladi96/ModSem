@@ -325,7 +325,7 @@
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#roleIn"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/eladi/ontologies/anime-ontology#ProductionRole"/>
         <rdfs:range rdf:resource="http://purl.org/ontology/po/Programme"/>
-        <rdfs:label xml:lang="en">Relation between a production role and the programme whose production has worked on.</rdfs:label>
+        <rdfs:comment xml:lang="en">Relation between a production role and the programme whose production has worked on.</rdfs:comment>
         <rdfs:label xml:lang="it">ruolo di produzione in</rdfs:label>
     </owl:ObjectProperty>
     

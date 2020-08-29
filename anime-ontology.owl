@@ -228,8 +228,8 @@ xsd:date rdf:type rdfs:Datatype .
                   rdfs:subPropertyOf :roleIn ;
                   rdfs:domain :ProductionRole ;
                   rdfs:range po:Programme ;
-                  rdfs:label "Relation between a production role and the programme whose production has worked on."@en ,
-                             "ruolo di produzione in"@it .
+                  rdfs:comment "Relation between a production role and the programme whose production has worked on."@en ;
+                  rdfs:label "ruolo di produzione in"@it .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#roleIn
