@@ -394,8 +394,8 @@ Subproperties can be defined in order to distinguish the different uses."""^^xsd
                                                                         rdf:type owl:SymmetricProperty ;
                                                                         rdfs:domain <http://www.semanticweb.org/eladi/ontologies/anime-ontology#MainCharacter> ;
                                                                         rdfs:range <http://www.semanticweb.org/eladi/ontologies/anime-ontology#MainCharacter> ;
-                                                                        rdfs:label "A relation between two main characters."@en ,
-                                                                                   "coprotagonista"@it .
+                                                                        rdfs:comment "A relation between two main characters."@en ;
+                                                                        rdfs:label "coprotagonista"@it .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#directedBy

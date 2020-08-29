@@ -83,8 +83,8 @@ xsd:date rdf:type rdfs:Datatype .
                      owl:SymmetricProperty ;
             rdfs:domain :MainCharacter ;
             rdfs:range :MainCharacter ;
-            rdfs:label "A relation between two main characters."@en ,
-                       "coprotagonista"@it .
+            rdfs:comment "A relation between two main characters."@en ;
+            rdfs:label "coprotagonista"@it .
 
 
 ###  http://www.semanticweb.org/eladi/ontologies/anime-ontology#directedBy
